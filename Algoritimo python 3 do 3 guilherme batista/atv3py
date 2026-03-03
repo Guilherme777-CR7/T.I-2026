@@ -1,0 +1,8 @@
+ud = input("Digite o usuário: ")
+sd = input("Digite a senha: ")
+
+if (ud == "procopio" and sd == "12345") or \
+   (ud == "paiva" and sd == "54321"):
+    print("Seja bem vindo!")
+else:
+    print("Usuário e senha não conferem.")
