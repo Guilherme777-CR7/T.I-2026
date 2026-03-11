@@ -1,8 +1,9 @@
-sp = 0
+st = 0
 
-for numero in range(1, 101):
+for n in range(1, 101):
     
     if n % 2 == 0:
-        sp = sp + n
 
-print(f"A soma de todos os números pares de 1 a 100 é: {sp}")
+        st += n
+
+print(f"A soma de todos os números pares entre 1 e 100 é: {st}")
