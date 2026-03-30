@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ética na IA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      transition: 0.3s;
+      font-size: 22px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.dark {
+      background: linear-gradient(180deg, #0f172a, #020617);
+      color: #f1f5f9;
+    }
+
+    body.light {
+      background: #f1f5f9;
+      color: #020617;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 { font-size: 42px; }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 22px;
+      padding-bottom: 5px;
+      transition: 0.2s;
+    }
+
+    nav a.active {
+      border-bottom: 3px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .container {
+      padding: 20px;
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transform: translateX(60px);
+      transition: all 0.4s ease;
+    }
+
+    .page.active {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+    }
+
+    .card {
+      margin: 20px auto;
+      padding: 35px;
+      border-radius: 12px;
+      max-width: 750px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+
+    h2 { font-size: 34px; }
+
+    p {
+      font-size: 22px;
+      line-height: 1.9;
+    }
+
+    .dark .card { background: #1e293b; }
+    .light .card { background: white; }
+
+    .highlight { color: #facc15; font-weight: bold; }
+
+    footer {
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 30px; }
+      h2 { font-size: 26px; }
+      p { font-size: 18px; }
+      nav a { font-size: 18px; }
+    }
+  </style>
+</head>
+<body class="dark">
+
+<header>
+  <h1>🤖 Ética na Inteligência Artificial</h1>
+  <nav>
+    <a id="nav-home" onclick="showPage('home')">Início</a>
+    <a id="nav-problema" onclick="showPage('problema')">Problema</a>
+    <a id="nav-solucao" onclick="showPage('solucao')">Solução</a>
+    <a id="nav-exemplos" onclick="showPage('exemplos')">Exemplos</a>
+    <a id="nav-conclusao" onclick="showPage('conclusao')">Conclusão</a>
+    <a onclick="toggleMode()">🌗 Modo</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <div id="home" class="page active">
+    <div class="card">
+      <h2>🤔 Você deixaria uma IA decidir seu futuro?</h2>
+      <p>A inteligência artificial já faz parte da nossa realidade e está sendo usada em decisões muito importantes, como contratação de funcionários, aprovação em universidades e até diagnósticos médicos. Isso mostra como a tecnologia está avançando rapidamente.</p>
+      <p>Porém, surge uma dúvida essencial: será que uma máquina consegue realmente entender uma pessoa? Conseguiria considerar sentimentos, dificuldades, história de vida e contexto social?</p>
+      <p>Essas questões são importantes porque decisões desse tipo impactam diretamente o futuro das pessoas. Por isso, não podemos confiar totalmente em sistemas automáticos sem supervisão humana.</p>
+    </div>
+  </div>
+
+  <div id="problema" class="page">
+    <div class="card">
+      <h2>⚠️ O Problema</h2>
+      <p>A inteligência artificial não possui <span class="highlight">empatia</span>, não entende o <span class="highlight">contexto humano</span> e não tem consciência sobre <span class="highlight">valores</span>. Ela apenas analisa dados e padrões matemáticos.</p>
+      <p>O problema é que esses dados podem estar incompletos, conter erros ou até preconceitos. Quando isso acontece, a IA pode tomar decisões injustas sem perceber.</p>
+      <p>Além disso, a IA não consegue questionar suas próprias decisões. Ou seja, se ela estiver errando, pode continuar errando várias vezes sem perceber, prejudicando muitas pessoas.</p>
+    </div>
+  </div>
+
+  <div id="solucao" class="page">
+    <div class="card">
+      <h2>✅ A Solução</h2>
+      <p>Para evitar problemas, é essencial aplicar <span class="highlight">justiça</span> e <span class="highlight">limites éticos</span> no uso da inteligência artificial.</p>
+      <p>A IA deve ser usada como uma ferramenta de apoio, ajudando a analisar informações rapidamente, mas nunca substituindo completamente o julgamento humano.</p>
+      <p>O ideal é combinar tecnologia com pensamento crítico, garantindo decisões mais equilibradas, responsáveis e humanas.</p>
+    </div>
+  </div>
+
+  <div id="exemplos" class="page">
+    <div class="card">
+      <h2>📊 Exemplos Reais</h2>
+      <p>Em processos seletivos, algumas empresas usaram IA para analisar currículos automaticamente. Porém, o sistema acabou favorecendo certos perfis e excluindo candidatos qualificados, mostrando como dados podem gerar injustiças.</p>
+      <p>Em reconhecimento facial, já ocorreram erros ao identificar pessoas, principalmente em ambientes com pouca iluminação ou com diversidade de rostos. Isso pode causar situações constrangedoras e até acusações injustas.</p>
+      <p>Na área da saúde, sistemas de IA podem errar diagnósticos quando não consideram o histórico completo do paciente, o que pode atrasar tratamentos importantes.</p>
+    </div>
+  </div>
+
+  <div id="conclusao" class="page">
+    <div class="card">
+      <h2>💡 Conclusão</h2>
+      <p>A inteligência artificial é uma ferramenta muito poderosa, mas não deve substituir completamente o ser humano em decisões importantes.</p>
+      <p>Decisões que afetam vidas precisam considerar fatores que máquinas não conseguem compreender, como emoções, experiências pessoais e contexto social.</p>
+      <p>Por isso, o equilíbrio entre tecnologia e humanidade é essencial para garantir justiça e evitar erros.</p>
+      <p><b>Use a IA com consciência e responsabilidade.</b></p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Use a tecnologia com consciência 💡</p>
+</footer>
+
+<script>
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById('nav-' + pageId).classList.add('active');
+  }
+
+  function toggleMode() {
+    document.body.classList.toggle('dark');
+    document.body.classList.toggle('light');
+  }
+
+  document.getElementById('nav-home').classList.add('active');
+</script>
+
+</body>
+</html>
