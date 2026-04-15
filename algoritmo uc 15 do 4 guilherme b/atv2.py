@@ -1,4 +1,4 @@
-def calcular_total():
+def ct():
     while True:
         try:
             p1 = float(input("Preço 1: "))
@@ -8,4 +8,4 @@ def calcular_total():
         except:
             print("Digite apenas números.")
 
-calcular_total()
+ct()
