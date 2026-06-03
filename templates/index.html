@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Cadastro de Alunos</h1>
+
+        <form method="POST">
+
+            <input type="text" name="nome" placeholder="Nome Completo">
+
+            <input type="text" name="email" placeholder="E-mail">
+
+            <input type="text" name="telefone" placeholder="Telefone">
+
+            <input type="text" name="cpf" placeholder="CPF">
+
+            <input type="text" name="cidade" placeholder="Cidade">
+
+            <input type="text" name="estado" placeholder="Estado">
+
+            <input type="text" name="curso" placeholder="Curso">
+
+            <input type="text" name="idade" placeholder="Idade">
+
+            <input type="password" name="senha" placeholder="Senha">
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+        {% if mensagem %}
+            <div class="mensagem">
+                <h2>{{ mensagem }}</h2>
+            </div>
+        {% endif %}
+
+        {% if dados %}
+            <div class="resultado">
+
+                <p><strong>Nome:</strong> {{ dados.nome }}</p>
+
+                <p><strong>E-mail:</strong> {{ dados.email }}</p>
+
+                <p><strong>Telefone:</strong> {{ dados.telefone }}</p>
+
+                <p><strong>CPF:</strong> {{ dados.cpf }}</p>
+
+                <p><strong>Cidade:</strong> {{ dados.cidade }}</p>
+
+                <p><strong>Estado:</strong> {{ dados.estado }}</p>
+
+                <p><strong>Curso:</strong> {{ dados.curso }}</p>
+
+                <p><strong>Idade:</strong> {{ dados.idade }}</p>
+
+            </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
