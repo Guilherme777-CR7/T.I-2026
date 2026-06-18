@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Placar do Campeonato</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🏆 Placar do Campeonato</h1>
+
+        <div class="time">
+            <span>Time A</span>
+            <span>{{ placar["Time A"] }}</span>
+            <a href="/ponto/Time A">+1 Ponto</a>
+        </div>
+
+        <div class="time">
+            <span>Time B</span>
+            <span>{{ placar["Time B"] }}</span>
+            <a href="/ponto/Time B">+1 Ponto</a>
+        </div>
+
+        <div class="time">
+            <span>Time C</span>
+            <span>{{ placar["Time C"] }}</span>
+            <a href="/ponto/Time C">+1 Ponto</a>
+        </div>
+
+        <div class="time">
+            <span>Time D</span>
+            <span>{{ placar["Time D"] }}</span>
+            <a href="/ponto/Time D">+1 Ponto</a>
+        </div>
+
+        <a class="zerar" href="/zerar">
+            Zerar Placar
+        </a>
+
+    </div>
+
+</body>
+</html>
