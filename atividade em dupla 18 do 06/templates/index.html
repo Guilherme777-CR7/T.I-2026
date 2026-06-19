@@ -1,46 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Placar do Campeonato</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel da Copa do Mundo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
+    <div class="main-container">
+        <header>
+            <div class="trofeu">🏆</div>
+            <h1>COPA DO MUNDO</h1>
+            <p>Painel Oficial de Pontuação</p>
+        </header>
 
-        <h1>🏆 Placar do Campeonato</h1>
-
-        <div class="time">
-            <span>Time A</span>
-            <span>{{ placar["Time A"] }}</span>
-            <a href="/ponto/Time A">+1 Ponto</a>
+        {% for confederacao, paises in confederacoes.items() %}
+        <div class="secao-continente">
+            <h2>{{ confederacao }}</h2>
+            <div class="grid-times">
+                {% for pais, pontos in paises.items() %}
+                <div class="card">
+                    <div class="pais-info">
+                        <h3>{{ pais }}</h3>
+                        <span class="score">{{ pontos }}</span>
+                    </div>
+                    <a href="{{ url_for('adicionar_ponto', confederacao=confederacao, pais=pais) }}" class="btn-add">
+                        + Ponto
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
         </div>
+        {% endfor %}
 
-        <div class="time">
-            <span>Time B</span>
-            <span>{{ placar["Time B"] }}</span>
-            <a href="/ponto/Time B">+1 Ponto</a>
-        </div>
-
-        <div class="time">
-            <span>Time C</span>
-            <span>{{ placar["Time C"] }}</span>
-            <a href="/ponto/Time C">+1 Ponto</a>
-        </div>
-
-        <div class="time">
-            <span>Time D</span>
-            <span>{{ placar["Time D"] }}</span>
-            <a href="/ponto/Time D">+1 Ponto</a>
-        </div>
-
-        <a class="zerar" href="/zerar">
-            Zerar Placar
-        </a>
-
+        <footer>
+            <a href="{{ url_for('resetar') }}" class="btn-reset">Zerar Placar Geral</a>
+        </footer>
     </div>
 
 </body>
