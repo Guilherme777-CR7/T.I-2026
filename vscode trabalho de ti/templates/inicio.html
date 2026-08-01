@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - NAPI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1b6299 0%, #c1d5e6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 400px;
+            padding: 40px 35px;
+            text-align: center;
+        }
+        .logo-icon {
+            font-size: 56px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #1b6299;
+            font-size: 32px;
+            margin: 0 0 5px 0;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: #1b6299;
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+        .btn-group {
+            margin-top: 25px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            text-align: center;
+        }
+        .btn-primary {
+            background: #0d6efd;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #0b5ed7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #0d6efd;
+            border: 2px solid #0d6efd;
+        }
+        .btn-outline:hover {
+            background: #f0f7ff;
+            transform: translateY(-2px);
+        }
+        .btn i { margin-right: 8px; }
+        .footer-text {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo-icon">🧠</div>
+        <h2>NAPI</h2>
+        <p class="subtitle">Saúde Mental e Bem-estar</p>
+        <div class="divider"></div>
+        <p style="color: #888; font-size: 14px;">Escolha uma opção para continuar</p>
+
+        <div class="btn-group">
+            <a href="{{ url_for('login') }}" class="btn btn-primary">
+                <i class="fas fa-sign-in-alt"></i> Entrar
+            </a>
+            <a href="{{ url_for('cadastro') }}" class="btn btn-outline">
+                <i class="fas fa-user-plus"></i> Cadastrar
+            </a>
+        </div>
+
+        <p class="footer-text">NAPI - Núcleo de Apoio Psicológico Integrado</p>
+    </div>
+</body>
+</html>
