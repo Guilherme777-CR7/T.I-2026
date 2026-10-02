@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% if livro %}
+    {% set titulo_pagina = "Editar Livro" %}
+{% else %}
+    {% set titulo_pagina = "Cadastrar Livro" %}
+{% endif %}
+
+{% block title %}
+{{ titulo_pagina }}
+{% endblock %}
+
+{% block content %}
+
+<section class="formulario">
+
+    <h2>{{ titulo_pagina }}</h2>
+
+    {% if livro %}
+        <form method="POST"
+              action="{{ url_for('editar', id=livro.id_livro) }}">
+    {% else %}
+        <form method="POST"
+              action="{{ url_for('cadastrar') }}">
+    {% endif %}
+
+        <label for="titulo">Título do livro:</label>
+
+        <input
+            type="text"
+            id="titulo"
+            name="titulo"
+            value="{{ livro.titulo if livro else '' }}"
+            required
+        >
+
+        <label for="ano">Ano de publicação:</label>
+
+        <input
+            type="number"
+            id="ano"
+            name="ano"
+            value="{{ livro.ano if livro else '' }}"
+        >
+
+        <label for="id_autor">Autor:</label>
+
+        <select id="id_autor" name="id_autor" required>
+
+            <option value="">Selecione um autor</option>
+
+            {% for autor in autores %}
+
+                <option
+                    value="{{ autor.id_autor }}"
+                    {% if livro and livro.id_autor == autor.id_autor %}
+                        selected
+                    {% endif %}
+                >
+                    {{ autor.nome }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+        <label for="id_categoria">Categoria:</label>
+
+        <select id="id_categoria" name="id_categoria" required>
+
+            <option value="">Selecione uma categoria</option>
+
+            {% for categoria in categorias %}
+
+                <option
+                    value="{{ categoria.id_categoria }}"
+                    {% if livro and livro.id_categoria == categoria.id_categoria %}
+                        selected
+                    {% endif %}
+                >
+                    {{ categoria.nome }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+        <button type="submit">
+            {% if livro %}
+                Salvar Alterações
+            {% else %}
+                Cadastrar Livro
+            {% endif %}
+        </button>
+
+    </form>
+
+</section>
+
+
+<section class="cadastros-auxiliares">
+
+    <div class="caixa">
+
+        <h3>Cadastrar Autor</h3>
+
+        <form method="POST"
+              action="{{ url_for('adicionar_autor') }}">
+
+            <input
+                type="text"
+                name="nome"
+                placeholder="Nome do autor"
+                required
+            >
+
+            <button type="submit">
+                Adicionar Autor
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="caixa">
+
+        <h3>Cadastrar Categoria</h3>
+
+        <form method="POST"
+              action="{{ url_for('adicionar_categoria') }}">
+
+            <input
+                type="text"
+                name="nome"
+                placeholder="Nome da categoria"
+                required
+            >
+
+            <button type="submit">
+                Adicionar Categoria
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

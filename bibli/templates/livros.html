@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}
+Acervo
+{% endblock %}
+
+{% block content %}
+
+<section class="acervo">
+
+    <h2>📚 Acervo da Biblioteca</h2>
+
+    {% if livros %}
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Ano</th>
+                <th>Autor</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for livro in livros %}
+
+            <tr>
+
+                <td>{{ livro.id_livro }}</td>
+
+                <td>{{ livro.titulo }}</td>
+
+                <td>{{ livro.ano }}</td>
+
+                <td>{{ livro.autor }}</td>
+
+                <td>{{ livro.categoria }}</td>
+
+                <td>
+
+                    <a
+                        class="editar"
+                        href="{{ url_for('editar', id=livro.id_livro) }}"
+                    >
+                        Editar
+                    </a>
+
+                    <a
+                        class="excluir"
+                        href="{{ url_for('excluir', id=livro.id_livro) }}"
+                        onclick="return confirm('Deseja realmente excluir este livro?')"
+                    >
+                        Excluir
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+    <p class="vazio">
+        Nenhum livro cadastrado ainda.
+    </p>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

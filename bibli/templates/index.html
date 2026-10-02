@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+Início
+{% endblock %}
+
+{% block content %}
+
+<section class="inicio">
+
+    <h2>Bem-vindo à Biblioteca</h2>
+
+    <p>
+        Este sistema permite cadastrar, consultar,
+        editar e excluir livros do acervo.
+    </p>
+
+    <div class="botoes">
+        <a class="botao" href="{{ url_for('cadastrar') }}">
+            Cadastrar Livro
+        </a>
+
+        <a class="botao" href="{{ url_for('livros') }}">
+            Consultar Acervo
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}
